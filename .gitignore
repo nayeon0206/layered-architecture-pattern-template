@@ -112,6 +112,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+. yarn.lock
 
 # IDE - VS code
 /.idea
@@ -120,4 +121,3 @@ dist
 .vscode/*
 /.vscode
 
-yarn.lock
