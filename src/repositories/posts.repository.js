@@ -1,11 +1,14 @@
 // src/repositories/posts.repository.js
 
-import { prisma } from '../utils/prisma/index.js';
-
 export class PostsRepository {
+  constructor(prisma) {
+    // 생성자에서 전달받은 Prisma 클라이언트의 의존성을 주입합니다.
+    this.prisma = prisma;
+  }
+
   findAllPosts = async () => {
     // ORM인 Prisma에서 Posts 모델의 findMany 메서드를 사용해 데이터를 요청합니다.
-    const posts = await prisma.posts.findMany();
+    const posts = await this.prisma.posts.findMany();
 
     return posts;
   };

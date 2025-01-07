@@ -1,10 +1,10 @@
 // src/controllers/posts.controller.js
 
-import { PostsService } from '../services/posts.service.js';
-
-// Post의 컨트롤러(Controller)역할을 하는 클래스
 export class PostsController {
-  postsService = new PostsService(); // Post 서비스를 클래스를 컨트롤러 클래스의 멤버 변수로 할당합니다.
+  constructor(postsService) {
+    // 생성자에서 전달받은 PostsService의 의존성을 주입합니다.
+    this.postsService = postsService;
+  }
 
   getPosts = async (req, res, next) => {
     try {

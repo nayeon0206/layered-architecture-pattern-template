@@ -1,9 +1,10 @@
 // src/services/posts.service.js
 
-import { PostsRepository } from '../repositories/posts.repository.js';
-
 export class PostsService {
-  postsRepository = new PostsRepository();
+  constructor(postsRepository) {
+    // 생성자에서 전달받은 PostsRepository 의존성을 주입합니다.
+    this.postsRepository = postsRepository;
+  }
 
   findAllPosts = async () => {
     // 저장소(Repository)에게 데이터를 요청합니다.
